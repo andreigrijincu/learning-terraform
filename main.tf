@@ -17,8 +17,9 @@ data "aws_ami" "app_ami" {
 resource "aws_instance" "web" {
   ami           = data.aws_ami.app_ami.id
   instance_type = var.instance_type
+  state = "running"
 
   tags = {
-    Name = "HelloWorld-aml23-start"
+    Name = "HelloWorld-aml23"
   }
 }
