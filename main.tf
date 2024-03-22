@@ -1,4 +1,4 @@
-data "aws_ami" "app_ami" {
+data "aws_ami" "this" {
   most_recent = true
 
   filter {
@@ -15,7 +15,7 @@ data "aws_ami" "app_ami" {
 }
 
 resource "aws_instance" "web" {
-  ami           = data.aws_ami.app_ami.id
+  ami           = data.aws_ami.this.id
   instance_type = "var.instance_type"
 
   tags = {
