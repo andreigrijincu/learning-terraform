@@ -23,7 +23,7 @@ resource "aws_instance" "web" {
   }
 }
 
-resource "aws_ecw_instance_state" "web" {
+resource "aws_ec2_instance_state" "web" {
   instance_id   = data.aws_ami.app_ami.id
   state         = "running"
 }
