@@ -24,6 +24,6 @@ resource "aws_instance" "web" {
 }
 
 resource "aws_ec2_instance_state" "web" {
-  instance_id   = data.aws_ami.app_ami.id
+  instance_id   = aws_instance.app_ami.id
   state         = "running"
 }
