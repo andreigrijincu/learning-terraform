@@ -21,6 +21,7 @@ resource "aws_instance" "web" {
   tags = {
     Name = "HelloWorld-aml23"
   }
+}
 
 resource "aws_ecw_instance_state" "web" {
   instance_id   = data.aws_ami.app_ami.id
