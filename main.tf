@@ -33,7 +33,7 @@ resource "aws_ec2_instance_state" "web" {
 }
 
 resource "aws_security_group" "web" {
-  name        = "web-SG"
+  name        = "webSG"
   description =  "Allow http/s in. Allow everything out"
 
   vpc_id      = data.aws_vpc.default.id
