@@ -70,6 +70,16 @@ resource "aws_security_group_rule" "ssh_in" {
   security_group_id = aws_security_group.web.id
 }
 
+resource "aws_security_group_rule" "sssh_in" {
+  type          = "ingress"
+  description   = "Allow ssh from anywhere"
+  from_port     = 222
+  to_port       = 222
+  protocol      = "tcp"
+  cidr_blocks   = ["0.0.0.0/0"]
+
+  security_group_id = aws_security_group.web.id
+
 resource "aws_security_group_rule" "web_all_out" {
   type          = "egress"
   from_port     = 0
