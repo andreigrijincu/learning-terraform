@@ -33,7 +33,7 @@ resource "aws_ec2_instance_state" "web" {
 }
 
 resource "aws_security_group" "web" {
-  name        = "webSG"
+  name        = "web-SG"
   description =  "Allow http/s in. Allow everything out"
 
   vpc_id      = data.aws_vpc.default.id
@@ -64,17 +64,6 @@ resource "aws_security_group_rule" "ssh_in" {
   description   = "Allow ssh from anywhere"
   from_port     = 22
   to_port       = 22
-  protocol      = "tcp"
-  cidr_blocks   = ["0.0.0.0/0"]
-
-  security_group_id = aws_security_group.web.id
-}
-
-resource "aws_security_group_rule" "sssh_in" {
-  type          = "ingress"
-  description   = "Allow ssh from anywhere"
-  from_port     = 222
-  to_port       = 222
   protocol      = "tcp"
   cidr_blocks   = ["0.0.0.0/0"]
 
